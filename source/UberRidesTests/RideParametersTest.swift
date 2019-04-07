@@ -74,6 +74,7 @@ class RideParametersTest: XCTestCase {
         let testSource = "test source"
         let testPaymentID = "test payment id"
         let testSurgeConfirm = "test surge confirm"
+        let testSeatCount = 1 as NSNumber
         let expectedUserAgent = "\(baseUserAgent!)-\(testSource)"
         let builder = RideParametersBuilder()
         builder.pickupLocation = testPickupLocation
@@ -86,6 +87,7 @@ class RideParametersTest: XCTestCase {
         builder.surgeConfirmationID = testSurgeConfirm
         builder.productID = testProductID
         builder.source = testSource
+        builder.seatCount = testSeatCount
         let params = builder.build()
 
         XCTAssertEqual(params.pickupLocation, testPickupLocation)
@@ -98,6 +100,7 @@ class RideParametersTest: XCTestCase {
         XCTAssertEqual(params.userAgent, expectedUserAgent)
         XCTAssertEqual(params.paymentMethod, testPaymentID)
         XCTAssertEqual(params.surgeConfirmationID, testSurgeConfirm)
+        XCTAssertEqual(params.seatCount, testSeatCount)
     }
     
     func testBuilder_withAllParams_usingPlaceIDs() {

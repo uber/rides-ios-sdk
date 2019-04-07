@@ -61,6 +61,9 @@ import MapKit
 
     /// Upfront fare quote used to request a ride
     @objc public let upfrontFare: UpfrontFare?
+  
+    /// The number of seats required for uberPOOL. Default and maximum value is 2.
+    @objc public let seatCount: NSNumber?
 
     /// The source to use for attributing the ride. Used internal to the SDK.
     @objc var source: String?
@@ -80,6 +83,7 @@ import MapKit
         builder.surgeConfirmationID = surgeConfirmationID
         builder.source = source
         builder.upfrontFare = upfrontFare
+        builder.seatCount = seatCount
         return builder
     }
 
@@ -95,7 +99,8 @@ import MapKit
                  paymentMethod: String?,
                  surgeConfirmationID: String?,
                  source: String?,
-                 upfrontFare: UpfrontFare?) {
+                 upfrontFare: UpfrontFare?,
+                 seatCount: NSNumber?) {
         self.productID = productID
         self.pickupLocation = pickupLocation
         self.pickupNickname = pickupNickname
@@ -109,6 +114,7 @@ import MapKit
         self.surgeConfirmationID = surgeConfirmationID
         self.source = source
         self.upfrontFare = upfrontFare
+        self.seatCount = seatCount
     }
 
     var userAgent: String? {
@@ -161,6 +167,9 @@ import MapKit
     /// Upfront fare quote used to request a ride
     @objc public var upfrontFare: UpfrontFare?
 
+    /// The number of seats required for uberPOOL. Default and maximum value is 2.
+    @objc public var seatCount: NSNumber?
+  
     /// The source to use for attributing the ride. Used internal to the SDK.
     @objc var source: String?
 
@@ -177,6 +186,7 @@ import MapKit
                               paymentMethod: paymentMethod,
                               surgeConfirmationID: surgeConfirmationID,
                               source: source,
-                              upfrontFare: upfrontFare)
+                              upfrontFare: upfrontFare,
+                              seatCount: seatCount)
     }
 }

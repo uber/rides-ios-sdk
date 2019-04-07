@@ -42,6 +42,7 @@ class RideRequestDataBuilder {
     let productIDKey = "product_id"
     let surgeConfirmationKey = "surge_confirmation_id"
     let upfrontFareKey = "fare_id"
+    let seatCountKey = "seat_count"
     
     private var rideParameters: RideParameters
     
@@ -96,6 +97,10 @@ class RideRequestDataBuilder {
 
         if let upfrontFareID = rideParameters.upfrontFare?.fareID {
             data[upfrontFareKey] = upfrontFareID
+        }
+      
+        if let seatCount = rideParameters.seatCount {
+          data[seatCountKey] = seatCount
         }
         
         var bodyData: Data?
