@@ -6,9 +6,50 @@
 
 import AuthenticationServices
 import Foundation
+import UIKit
 @testable import UberAuth
 import UberCore
 
+
+public class AuthorizationCodeResponseParsingMock: AuthorizationCodeResponseParsing {
+    public init() { }
+
+
+    public private(set) var isValidResponseCallCount = 0
+    public var isValidResponseHandler: ((URL, String) -> (Bool))?
+    public func isValidResponse(url: URL, matching redirectURI: String) -> Bool {
+        isValidResponseCallCount += 1
+        if let isValidResponseHandler = isValidResponseHandler {
+            return isValidResponseHandler(url, redirectURI)
+        }
+        return false
+    }
+
+    public private(set) var callAsFunctionCallCount = 0
+    public var callAsFunctionHandler: ((URL) -> (Result<Client, UberAuthError>))?
+    public func callAsFunction(url: URL) -> Result<Client, UberAuthError> {
+        callAsFunctionCallCount += 1
+        if let callAsFunctionHandler = callAsFunctionHandler {
+            return callAsFunctionHandler(url)
+        }
+        fatalError("callAsFunctionHandler returns can't have a default value thus its handler must be set")
+    }
+}
+
+public class ApplicationLaunchingMock: ApplicationLaunching {
+    public init() { }
+
+
+    public private(set) var openCallCount = 0
+    public var openHandler: ((URL, [UIApplication.OpenExternalURLOptionsKey: Any], ((Bool) -> Void)?) -> ())?
+    public func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler: ((Bool) -> Void)?)  {
+        openCallCount += 1
+        if let openHandler = openHandler {
+            openHandler(url, options, completionHandler)
+        }
+        
+    }
+}
 
 public class ConfigurationProvidingMock: ConfigurationProviding {
     public init() { }
@@ -23,6 +64,16 @@ public class ConfigurationProvidingMock: ConfigurationProviding {
 
     public private(set) var redirectURISetCallCount = 0
     public var redirectURI: String? = nil { didSet { redirectURISetCallCount += 1 } }
+
+    public private(set) var isInstalledCallCount = 0
+    public var isInstalledHandler: ((UberApp, Bool) -> (Bool))?
+    public func isInstalled(app: UberApp, defaultIfUnregistered: Bool) -> Bool {
+        isInstalledCallCount += 1
+        if let isInstalledHandler = isInstalledHandler {
+            return isInstalledHandler(app, defaultIfUnregistered)
+        }
+        return false
+    }
 }
 
 class AuthenticationSessioningMock: AuthenticationSessioning {

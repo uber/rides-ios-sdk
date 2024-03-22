@@ -23,7 +23,7 @@ final class Content {
             guard let destination else { return .inApp }
             switch destination {
             case .inApp: return .inApp
-            case .native: return .native(appPriority: [.rides])
+            case .native: return .native(appPriority: [.rides, .eats, .driver])
             }
         }()
         
@@ -43,6 +43,10 @@ final class Content {
                 }
             }
         )
+    }
+    
+    func openUrl(_ url: URL) {
+        UberAuth.handle(url)
     }
     
     enum Item: String, Hashable, Identifiable {
@@ -76,6 +80,7 @@ struct ContentView: View {
             }
             .navigationTitle("Uber iOS SDK")
         }
+        .onOpenURL { content.openUrl($0) }
         .sheet(item: $content.selection, content: { item in
             switch item {
             case .type:

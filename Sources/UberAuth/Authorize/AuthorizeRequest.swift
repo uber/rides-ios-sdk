@@ -7,13 +7,9 @@ import Foundation
 
 struct AuthorizeRequest: Request {
     
-    // MARK: Properties
-    
-    let host: String?
-    let path: String
-    
     // MARK: Private Properties
     
+    private let app: UberApp?
     private let codeChallenge: String
     private let clientID: String
     private let redirectURI: String
@@ -21,13 +17,12 @@ struct AuthorizeRequest: Request {
     
     // MARK: Initializers
     
-    init(type: LinkType,
+    init(app: UberApp?,
          clientID: String,
          codeChallenge: String,
          redirectURI: String,
          requestURI: String?) {
-        self.host = type.host
-        self.path = type.path
+        self.app = app
         self.clientID = clientID
         self.codeChallenge = codeChallenge
         self.redirectURI = redirectURI
@@ -50,28 +45,10 @@ struct AuthorizeRequest: Request {
         .compactMapValues { $0 }
     }
     
-    // MARK: LinkType
+    var host: String? = nil
     
-    enum LinkType {
-        case url
-        case deeplink
-        
-        var host: String? {
-            switch self {
-            case .url:
-                return nil
-            case .deeplink:
-                return "authorize"
-            }
-        }
-        
-        var path: String {
-            switch self {
-            case .url:
-                return "/oauth/v2/authorize"
-            case .deeplink:
-                return ""
-            }
-        }
+    var path: String {
+        let identifier = app?.urlIdentifier ?? "universal"
+        return "/oauth/v2/\(identifier)/authorize"
     }
 }

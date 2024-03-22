@@ -2,12 +2,29 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.uber.UberSDK</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.uber.UberSDK</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>uber</string>
+		<string>ubereats</string>
+		<string>uberdriver</string>
+	</array>
 	<key>UberAuth</key>
 	<dict>
 		<key>ClientID</key>
 		<string>&lt;Client ID&gt;</string>
 		<key>RedirectURI</key>
-		<string>&lt;Redirect URI&gt;</string>
+		<string>com.uber.UberSDK://oauth/consumer</string>
 	</dict>
 </dict>
 </plist>

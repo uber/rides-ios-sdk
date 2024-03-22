@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B28217C82B97A2E400EE786D /* AuthManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28217C72B97A2E400EE786D /* AuthManagerTests.swift */; };
+		B28A41712BACA97000F727C7 /* AuthorizationCodeResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A41702BACA97000F727C7 /* AuthorizationCodeResponseParserTests.swift */; };
+		B28A41732BAE098D00F727C7 /* AsyncDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A41722BAE098D00F727C7 /* AsyncDispatcherTests.swift */; };
 		B28CDD322BA403A900EB1BBD /* AuthorizationCodeAuthProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CDD312BA403A900EB1BBD /* AuthorizationCodeAuthProviderTests.swift */; };
 		B28CDD342BA4BE2100EB1BBD /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CDD332BA4BE2100EB1BBD /* RequestTests.swift */; };
 		B28CDD362BA4C6CA00EB1BBD /* AuthorizeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CDD352BA4C6CA00EB1BBD /* AuthorizeRequestTests.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		B28217C72B97A2E400EE786D /* AuthManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerTests.swift; sourceTree = "<group>"; };
+		B28A41702BACA97000F727C7 /* AuthorizationCodeResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeResponseParserTests.swift; sourceTree = "<group>"; };
+		B28A41722BAE098D00F727C7 /* AsyncDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncDispatcherTests.swift; sourceTree = "<group>"; };
 		B28CDD312BA403A900EB1BBD /* AuthorizationCodeAuthProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeAuthProviderTests.swift; sourceTree = "<group>"; };
 		B28CDD332BA4BE2100EB1BBD /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		B28CDD352BA4C6CA00EB1BBD /* AuthorizeRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeRequestTests.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				B28217C72B97A2E400EE786D /* AuthManagerTests.swift */,
 				B28CDD312BA403A900EB1BBD /* AuthorizationCodeAuthProviderTests.swift */,
 				B28CDD352BA4C6CA00EB1BBD /* AuthorizeRequestTests.swift */,
+				B28A41702BACA97000F727C7 /* AuthorizationCodeResponseParserTests.swift */,
+				B28A41722BAE098D00F727C7 /* AsyncDispatcherTests.swift */,
 				B28CDD332BA4BE2100EB1BBD /* RequestTests.swift */,
 				B2D096942B97C4A00093B510 /* UberAuthErrorTests.swift */,
 			);
@@ -330,7 +336,9 @@
 				B28217C82B97A2E400EE786D /* AuthManagerTests.swift in Sources */,
 				B28CDD362BA4C6CA00EB1BBD /* AuthorizeRequestTests.swift in Sources */,
 				B2D096932B97B8E70093B510 /* UberAuthMocks.swift in Sources */,
+				B28A41732BAE098D00F727C7 /* AsyncDispatcherTests.swift in Sources */,
 				B28CDD322BA403A900EB1BBD /* AuthorizationCodeAuthProviderTests.swift in Sources */,
+				B28A41712BACA97000F727C7 /* AuthorizationCodeResponseParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

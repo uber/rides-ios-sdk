@@ -19,6 +19,9 @@ public enum UberAuthError: Error {
     // The auth code was not found or is malformed
     case invalidAuthCode
     
+    // The response url could not be parsed
+    case invalidResponse
+    
     // Failed to build the auth request
     case invalidRequest(String)
     
@@ -48,6 +51,8 @@ extension UberAuthError: LocalizedError {
             return "The auth code was not found or is malformed"
         case .oAuth(let error):
             return error.errorDescription
+        case .invalidResponse:
+            return "The response url could not be parsed"
         case .invalidRequest(let details):
             return "Failed to build the auth request: \(details)"
         case .other(let error):
